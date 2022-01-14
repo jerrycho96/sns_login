@@ -7,6 +7,8 @@
 
 import SwiftUI
 import AuthenticationServices
+import Firebase
+import GoogleSignIn
 
 struct LoginPage: View {
 
@@ -123,11 +125,23 @@ struct LoginPage: View {
         }
         return attributedString
     }
+    
+    // handle login
+    func handleLogin() {
+        // Google Sign in
+        
+    }
 }
 
 struct LoginPage_Previews: PreviewProvider {
     static var previews: some View {
         LoginPage()
             .preferredColorScheme(.light)
+    }
+}
+
+extension View {
+    func getRect()->CGRect{
+        return UIScreen.main.bounds
     }
 }

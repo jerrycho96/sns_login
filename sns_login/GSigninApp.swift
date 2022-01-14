@@ -9,14 +9,29 @@ import SwiftUI
 import Firebase
 import GoogleSignIn
 
-struct GSigninApp: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+@main
+struct GSigninApp: App {
+    
+    // 앱 대리자 연결
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
     }
 }
 
-struct GSigninApp_Previews: PreviewProvider {
-    static var previews: some View {
-        GSigninApp()
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        // 파이어베이스 초기화
+        FirebaseApp.configure()
+        return true
+    }
+    
+    func application(_ application: UIApplication, open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any])
+      -> Bool {
+      return GIDSignIn.sharedInstance.handle(url)
     }
 }
