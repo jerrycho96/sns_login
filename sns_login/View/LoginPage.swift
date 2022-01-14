@@ -28,7 +28,7 @@ struct LoginPage: View {
                         .overlay(Text("피이이인토오오오").foregroundColor(Color.pink))
                         .padding(.top, 50)
                     Spacer()
-                    Text("로그인 하실랑께")
+                    Text("들어올 땐 마음대로지만 나갈 땐 아니라네")
                    // Text("핀토 로그인")
                    //     .fontWeight(.bold)
                    //     .font(.system(size: 30))
